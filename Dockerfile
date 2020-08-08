@@ -12,5 +12,5 @@ COPY . .
 RUN yarn build
 
 FROM nginx:1.19.1-alpine
-
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
