@@ -8,3 +8,15 @@ before_install:
 
 script:
   - docker run -e CI=true elhotiby1/docker-test yarn test
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-1'
+  app: 'docker-test'
+  env: 'DockerTest-env'
+  bucket_name: 'elasticbeanstalk-us-east-1-155684741557'
+  bucket_path: 'docker-test'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
