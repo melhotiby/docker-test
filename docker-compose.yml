@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  web:
+    restart: always
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    ports:
+      - '3000:3000'
+  # tests:
+  #   restart: always
+  #   stdin_open: true
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   volumes:
+  #     - /app/node_modules
+  #     - .:/app
+  #   command: ['yarn', 'test']
