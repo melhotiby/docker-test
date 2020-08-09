@@ -9,4 +9,5 @@ RUN npm run build
 ### STAGE 2: Run ###
 FROM nginx:1.17.1-alpine
 EXPOSE 80
+
 COPY --from=0 /usr/src/app/dist /usr/share/nginx/html
